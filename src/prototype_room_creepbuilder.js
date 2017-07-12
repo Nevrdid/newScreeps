@@ -127,7 +127,7 @@ Room.prototype.checkRoleToSpawn = function(role, amount, targetId, targetRoom, l
   if (this.inQueue(creepMemory) || this.inRoom(creepMemory, amount)) { return false; }
 
   if (config.debug.queue) {
-    this.log('Add ' + creepMemory.role + ' to queue.');
+    this.log('Add ' + creepMemory.role + ' to queue. ' + JSON.stringify(creepMemory));
   }
   return this.memory.queue.push(creepMemory);
 };

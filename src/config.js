@@ -69,7 +69,7 @@ global.config = {
     scoutMinControllerLevel: 4,
     ttlPerRoomForScout: 500,
     numberOfNextroomers: 10,
-    nextroomerInterval: _.ceil(1500 / 10),
+    nextroomerInterval: 500,
     maxRooms: 20,
     revive: true,
     maxDistance: 17,
@@ -118,13 +118,15 @@ global.config = {
     distance: 3,
   },
 
-  sourcer: {
-    spawnCarryLevelMultiplier: 300,
-    spawnCarryWaitTime: 400,
-  },
-
   carry: {
-    size: 200,
+    sizes: {
+      0: [3, 3], // RCL 1
+      550: [5, 5], // RCL 2
+      800: [6, 6], // RCL 3
+      1300: [10, 10], // RCL 4
+      1800: [14, 14], // RCL 5
+      2300: [20, 20], // RCL 6
+    },
     // Percentage should increase from base to target room. Decrease may cause stack on border
     carryPercentageBase: 0.1,
     carryPercentageHighway: 0.2,
@@ -195,16 +197,17 @@ global.config = {
       harvester: 1,
       sourcer: 2,
       storagefiller: 3,
-      defendranged: 3
+      defendranged: 4,
+      carry: 5
     },
     otherRoom: {
       harvester: 11,
       defender: 12,
       defendranged: 13,
       nextroomer: 15,
-      reserver: 16,
       carry: 17,
-      sourcer: 18
+      sourcer: 18,
+      reserver: 19
     }
   }
 };

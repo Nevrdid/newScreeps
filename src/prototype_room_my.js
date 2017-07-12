@@ -304,6 +304,10 @@ Room.prototype.executeRoom = function() {
       if (this.controller.level === 2 || this.controller.level === 3) {
         amount = 5;
       }
+    } else {
+      if (this.storage.store.energy < config.creep.energyFromStorageThreshold && this.controller.level < 5) {
+        amount = 3;
+      }
     }
     this.checkRoleToSpawn('harvester', amount, 'harvester');
   }
@@ -343,14 +347,12 @@ Room.prototype.executeRoom = function() {
     this.memory.attackTimer++;
 
     if (this.memory.attackTimer > 15) {
-      var defender = {
-        role: 'defendranged'
-      };
+      let role = 'defendranged';
       if (this.memory.attackTimer > 300) {
-        defender.role = 'defendmelee';
+        role = 'defendmelee';
       }
-      if (this.exectueEveryTicks(250) && !this.inQueue(defender)) {
-        this.memory.queue.push(defender);
+      if (this.exectueEveryTicks(250)) {
+        this.checkRoleToSpawn(role, 1, undefined, this.room.name, 1, this.room.name);
       }
     }
     if (this.exectueEveryTicks(10)) {
