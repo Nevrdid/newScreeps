@@ -16,15 +16,14 @@ roles.carry.flee = true;
 roles.carry.boostActions = ['capacity'];
 
 roles.carry.settings = {
-  param: ['controller.level'],
+  param: ['energyCapacityAvailable'],
   prefixString: {
-    1: 'MC',
-    3: 'WMC',
+    800: 'W'
   },
   layoutString: 'MC',
-  amount: {
-    1: [1, 1],
-    3: [1, 2]
+  amount: config.carry.sizes,
+  maxLayoutAmount: {
+    0: 1
   }
 };
 
