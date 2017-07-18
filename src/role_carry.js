@@ -22,9 +22,7 @@ roles.carry.settings = {
   },
   layoutString: 'MC',
   amount: config.carry.sizes,
-  maxLayoutAmount: {
-    0: 1
-  }
+  maxLayoutAmount: 1
 };
 
 roles.carry.checkHelperEmptyStorage = function(creep) {

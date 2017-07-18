@@ -173,10 +173,6 @@ Creep.prototype.buildRoad = function() {
       (this.room.controller.level < 3 || this.room.memory.misplacedSpawn)) {
       return false;
     }
-    // TODO should be extracted to a method, stolen from role_harvester
-    if (!this.room.storage || this.room.storage.store.energy + 1000 < config.creep.energyFromStorageThreshold) {
-      return false;
-    }
   }
 
   // TODO as creep variable

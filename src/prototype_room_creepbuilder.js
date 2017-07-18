@@ -74,6 +74,9 @@ Room.prototype.inQueue = function(creepMemory) {
 };
 
 Room.prototype.inRoom = function(creepMemory, amount = 1) {
+  if (amount === 0) {
+    return false;
+  }
   let creepsSpawning = [];
   for (let spawn of this.find(FIND_MY_SPAWNS)) {
     if (spawn.spawning) {
